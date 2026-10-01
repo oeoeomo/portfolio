@@ -1,0 +1,509 @@
+:root {
+  font-family: "Gowun Batang", serif;
+  color: #182b26;
+  background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #182b26;
+  --muted: #68756d;
+  --line: #d9ded5;
+  --lime: #d8f36a;
+  --gutter: clamp(20px, 5.4vw, 84px);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0 4px;
+  background-color: transparent;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 31px;
+  font-family: "Pretendard", sans-serif;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.15em 0;
+  background-color: #fcfcfc;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  transition: color 180ms ease;
+}
+
+.nav-link span {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.nav-link:hover span,
+.nav-link:focus-visible span {
+  transform: scale(1.2);
+}
+
+.page {
+  padding: 0 var(--gutter);
+  animation: arrive 440ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.page[hidden] {
+  display: none;
+}
+
+.home-page {
+  padding-top: clamp(52px, 8vw, 112px);
+}
+
+.intro-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 36px;
+  padding-bottom: clamp(40px, 6vw, 76px);
+}
+
+.eyebrow,
+.project-caption span,
+.image-index,
+.page-footer,
+.profile-list dt,
+.detail-meta,
+.contact-links > a > span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.about-layout h1,
+.works-heading h1,
+.contact-main h1 {
+  margin-bottom: 0;
+  font-size: clamp(54px, 8.6vw, 124px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.about-layout h1 span,
+.works-heading h1 span,
+.contact-main h1 span {
+  font-family: "Gowun Batang", serif;
+  font-style: italic;
+}
+
+.home-title {
+  margin: 0;
+  color: #858585;
+  font-size: 9pt;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-inline: calc(0px - var(--gutter));
+}
+
+.project-card {
+  min-width: 0;
+}
+
+.project-image {
+  position: relative;
+  overflow: visible;
+  aspect-ratio: auto;
+  background: #dce5d8;
+}
+
+.project-image--poster-size {
+  aspect-ratio: 4 / 5;
+  background: #fff;
+}
+
+.project-image.project-image--poster-size img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-coral {
+  background-color: #efaa87;
+}
+
+.image-blue {
+  background-color: #96c6d4;
+}
+
+.image-lime {
+  background-color: #d8e777;
+}
+
+.image-violet {
+  background-color: #b6bbd2;
+}
+
+.project-image img,
+.about-image img,
+.detail-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+}
+
+.project-caption h2 {
+  margin-bottom: 0;
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 400;
+}
+
+.project-caption span {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.home-page .project-caption {
+  display: block;
+  padding: 6px 8px 10px;
+}
+
+.home-page .project-caption h2 {
+  font-size: 8pt;
+  line-height: 1.25;
+}
+
+.home-page .project-caption > span {
+  display: none;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: clamp(66px, 10vw, 136px);
+  padding: 16px 0 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.footer-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 6px 1px;
+  border-radius: 50%;
+  background: #92b924;
+}
+
+.about-page,
+.contact-page {
+  padding-top: clamp(72px, 11vw, 154px);
+}
+
+.works-page {
+  padding-top: clamp(24px, 4vw, 56px);
+}
+
+.about-page {
+  padding-right: clamp(20px, 2vw, 24px);
+  padding-left: clamp(20px, 2vw, 24px);
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(40px, 8vw, 120px);
+}
+
+.about-intro h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.about-location {
+  max-width: 360px;
+  margin: 18px 0 28px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.about-contacts {
+  display: grid;
+  justify-items: start;
+  gap: 9px;
+}
+
+.about-contacts a {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.about-contacts a:hover {
+  color: var(--ink);
+}
+
+.about-details {
+  display: grid;
+  gap: clamp(36px, 5vw, 64px);
+  text-align: right;
+}
+
+.about-group h2 {
+  margin: 0 0 18px;
+  font-size: 8pt;
+  font-weight: 400;
+}
+
+.about-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 8pt;
+  line-height: 1.7;
+  text-align: right;
+}
+
+.about-list time {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.about-list li > span {
+  min-width: 0;
+}
+
+.work-detail {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: clamp(28px, 6vw, 84px);
+  margin-bottom: clamp(82px, 13vw, 180px);
+}
+
+.work-detail[hidden] {
+  display: none;
+}
+
+.work-detail-reverse .detail-image {
+  order: 2;
+}
+
+.detail-image {
+  overflow: visible;
+  aspect-ratio: auto;
+  background: #dce5d8;
+}
+
+.project-image img,
+.detail-image img {
+  height: auto;
+  object-fit: contain;
+}
+
+.detail-copy h2 {
+  margin-bottom: 10px;
+  font-size: 8pt;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.detail-copy > p {
+  max-width: 400px;
+  color: var(--muted);
+  font-family: "Gowun Batang", serif;
+  font-size: 8pt;
+  line-height: 1.9;
+}
+
+.contact-page {
+  display: grid;
+  min-height: calc(100svh - 31px);
+  place-content: center;
+  gap: 12px;
+  padding-top: 0;
+  text-align: center;
+}
+
+.contact-info {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.contact-info h1,
+.contact-info a {
+  margin: 0;
+  font-size: 12pt;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .main-nav {
+    min-height: 28px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .intro-row {
+    align-items: start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .project-caption {
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+  }
+
+  .project-caption span {
+    font-size: 9px;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .work-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .work-detail-reverse .detail-image {
+    order: 0;
+  }
+
+  .detail-copy {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --gutter: 20px;
+  }
+
+  .home-page {
+    padding-top: 56px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .project-caption {
+    align-items: baseline;
+    flex-direction: row;
+  }
+
+  .page-footer {
+    align-items: start;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 9px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
